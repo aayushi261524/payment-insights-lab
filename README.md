@@ -1,20 +1,17 @@
 # Payment Insights Lab
 
-A payment analytics adaptation for Aayushi’s product portfolio.
+Public prototype: https://aayushi-payment-insights.vercel.app/payment-guide.html
 
 ## Provenance
-Forked from [lana-k/sqliteviz](https://github.com/lana-k/sqliteviz), Apache-2.0 licensed. SQL execution, file imports, charts, pivot tables and offline workspace originate in sqliteviz and its dependencies. The original LICENSE is retained.
+Forked from [lana-k/sqliteviz](https://github.com/lana-k/sqliteviz), Apache-2.0 licensed. SQL execution, data imports, charts, pivot tables, graphs and the offline workspace are upstream features. The original LICENSE is retained.
 
-## Current status
-The reusable analytics foundation is saved in this account. Guided payment examples and deployment are pending; no production verification or live deployment is claimed.
+## Added here
+public/payment-guide.html adds a sample-first payment analysis journey, eight clearly fictional attempts, a validated browser-only CSV summary, gateway/failure breakdowns, CSV download and guided SQL examples. It connects by a navigation link to the separate upstream workspace; there is no automatic data transfer.
 
-## Planned adaptation
-- Clearly labelled fictional payment attempts with gateway, method, amount, outcome and failure reason.
-- Guided queries for attempt success rate, gateway performance and failure reasons.
-- Explicit denominators and warnings against assuming correlation proves a routing improvement.
-- A sample-first entry so visitors can explore without providing personal data.
+Success rate is succeeded attempts / all attempts, including pending. Failure shares use failed attempts only. Amounts are stored in integer paise; succeeded amount is not unique-order revenue or settlement. Retry attempts count separately and need unique IDs. No live gateway, bank connection, AI decision engine or business-results claims.
 
-No payment processing, live gateway connection, AI analysis or business results are claimed.
+## Validation and hosting
+Vercel production build passed. The live guide loaded and sample totals checked: 8 attempts, 50.0% success, INR 4,700 succeeded amount. Further file/SQL/mobile checks are documented separately. Changes to master deploy automatically through Vercel’s GitHub app.
 
-## Upstream documentation
-[User guide](https://sqliteviz.com/docs) and package.json document the existing workspace and build scripts. Production build, sample calculations, file handling and mobile layout must be verified before publishing.
+## Development / updates
+See package.json. npm run build emits dist. vercel.json selects Vite and the payment guide landing route. Edit public/payment-guide.html for the guide; src/ contains the retained upstream workspace. Preserve original licence and third-party notices.
